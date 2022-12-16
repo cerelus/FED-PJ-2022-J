@@ -2,13 +2,28 @@
 <html>
     <head>
         <!-- meta: description 사이트설명 -->
-        <meta name="description" content="네이버 요약뉴스,최신뉴스,정치,경제,사회,IT/과학,연예" />
+        <meta
+            name="description"
+            content="네이버 요약뉴스,최신뉴스,정치,경제,사회,IT/과학,연예"
+        />
         <!-- meta: charset 필수 인코딩설정 -->
         <meta charset="utf-8" />
         <!-- title: 탭에 표시 타이틀 -->
         <title>네이버 요약 뉴스</title>
         <!-- 인터널 스타일시트 요소 -->
         <style>
+            /* CDN 웹폰트 적용(import) */
+            @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Noto+Serif+KR&display=swap");
+
+            /* 
+            1. 타이틀용
+            font-family: 'Black Han Sans', sans-serif;
+            2. 메뉴/하단영역용
+            font-family: 'Do Hyeon', sans-serif;
+            3. 일반내용용
+            font-family: 'Noto Serif KR', serif;
+            */
+
             /* 
                 [스타일 시트 문법 영역!
                 기본문법]
@@ -32,10 +47,12 @@
                 [ CSS 선택자 (Selector) ]
                 1. 타입선택자 : 요소명으로 선택
                 예) h1{}, div{}, a{}
+
                 2. 아이디선택자 : #
                 예) #my{}
                 3. 클래스선택자 : .
                 예) .my{}
+
                 4. 종속선택자 : 
                 요소명#아이디명 / 요소명.클래스명
                 요소명#아이디명.클래스명 
@@ -46,10 +63,21 @@
                 -> 클래스적용시 같은 이름으로 다른 디자인을줄때
                 예) div.on{} header.on{} 
                 -> 같은 클래스인데 다른 디자인 적용가능!
+
                 5. 그룹선택자 : ,(콤마)
                 예) h1,div,a {}
+
                 6. 자손 선택자 : 띄어쓰기
                 예) div a {} -> div 하위의 모든 a요소들
+
+                7. 직계자식 선택자 : > (왼쪽꺾쇠)
+                예) header>a{} -> header 바로 아래 a요소
+
+                8. 형제선택자 : +
+                예) div+div{}-> 앞에 형제div가 있는 div선택
+                예)a+a -> 앞에 a가 있는 a선택
+                -> 첫번째를 제외한 나머지 형제요소들 선택시 많이씀
+
             */
 
             /* 기본마진 패딩 없애기 */
@@ -115,6 +143,9 @@
                     설정한다. 이때 위아래 0 양쪽 auto를
                     줄여서 마영오! 라고 함!
                 */
+
+                /* 웹폰트 적용 */
+                font-family: "Gowun Dodum", sans-serif;
             }
 
             /* 1.상단영역 */
@@ -125,6 +156,70 @@
                 /* 글자중앙정렬 tac */
                 text-align: center;
             }
+            /* 타이틀 */
+            .top > h1 {
+                /* 1.글자 스타일 fs : font-style
+                    italic : 이탤릭
+                    normal : 이탤릭해제(기본값)
+                */
+                /* font-style: italic; */
+                /* font-style: normal; */
+                /* 2. 글자두께 fw : font-weight 
+                    normal : 두께없음
+                    bold : 두껩게
+                */
+                font-weight: normal;
+                /* font-weight: bold; */
+
+                /* 3. 글자크기 fz : font-size 
+                - 글자단위 : pt,px,em,rem,vw,vh
+                */
+                font-size: 50px;
+
+                /* 글자줄간격 lh: line-height(글이 여러줄일때 사이간격용 또는 글자박스에서 세로중앙정렬시)
+                - 단위없으면 배수
+                */
+                /* line-height: 1.7; */
+
+                /* 5. 글자체 ff : font-family 
+                - 콤마로 여러개를 쓰면 대체체를 설정함
+                */
+                /* font-family: "궁서","굴림","맑은 고딕","돋움"; */
+                font-family: "Black Han Sans", sans-serif;
+
+                /* 6. 글자색 C -> color : 해시코드/RGB/HSL/웹색상명 */
+                color: darkslategray;
+            }
+
+            /* GNB 메뉴 a */
+            #gnb a {
+                /* 글자체 */
+                font-family: "Do Hyeon", sans-serif;
+                /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨!
+                반드시 a에서 변경해야만 적용된다!(부모에서는 안됨!) */
+                /* 글자색 */
+                color: rgba(0, 0, 0, 0.7);
+                /* 밑줄없앰 - text-decoration:none -> tdn */
+                text-decoration: none;
+            }
+            /* a요소 오버시 */
+            /* :hover 가상클래스
+            -> 마우스오버된 상태에 대한 디자인 셋팅 */
+            /* a+a:hover 앞에 a형제가 있는 a에 오버시 */
+            #gnb a + a:hover {
+                /* 글자색 */
+                color: lightseagreen;
+                /* 글자 데코레이션 : text-decoration -> td
+                underline(밑줄)/overline(윗줄)/line-through(중간줄)/none(없음) */
+                text-decoration: overline;
+            }
+            /* 로고 이미지 */
+            #gnb img {
+                /* 인라인요소간 세로정렬(진행방향) va : vertical-align
+                - 값:top,bottom,middle,수치  */
+                vertical-align: -3px;
+            }
+
             /* 2.메인영역 */
             /* 메인영역 이미지 */
             .cont img {
@@ -140,6 +235,17 @@
                 /* 글자중앙정렬 */
                 text-align: center;
             }
+            /* 하단주소 */
+            .info address {
+                /* 글자체 */
+                font-family: "Do Hyeon", sans-serif;
+                /* address는 기본 이탤릭이므로 해제하기 */
+                font-style: normal;
+                /* 글자색 */
+                color: #333;
+                /* 글자크기 */
+                font-size: 17px;
+            }
         </style>
     </head>
     <body>
@@ -152,10 +258,17 @@
 
             <nav id="gnb">
                 <a href="#">
-                    <img src="images/logo.png" alt="네이버로고" style="width: 20px" />
+                    <img
+                        src="images/logo.png"
+                        alt="네이버로고"
+                        style="width: 20px"
+                    />
                 </a>
-                <a href="">정치</a> | <a href="">경제</a> | <a href="">사회</a> | <a href="">IT/과학</a> |
-                <a href="">TV/연예</a>
+                <a href="sub1.html">정치</a> | 
+                <a href="sub2.html">경제</a> |
+                <a href="sub3.html">사회</a> | 
+                <a href="sub4.html">IT/과학</a> |
+                <a href="sub5.html">TV/연예</a>
             </nav>
         </header>
         <!-- 2.메인영역 -->
@@ -167,7 +280,7 @@
             <!-- 주소블록요소 -->
             <address>
                 서울시 강남구 역삼동 119 대호B 8F <br />
-                대표: Tom Brace Parker <br />
+                대표: 최명진 <br />
                 전화: 010-2222-3333
             </address>
         </footer>
