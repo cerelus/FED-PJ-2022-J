@@ -3,15 +3,15 @@
 /* Info Pj 공통 CSS - common.css */
 
 /* CDN 웹폰트 적용(import) */
-@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Noto+Serif+KR&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&family=Nanum+Gothic&display=swap');
 
 /* 
     1. 타이틀용
     font-family: 'Black Han Sans', sans-serif;
     2. 메뉴/하단영역용
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Jua', sans-serif;
     3. 일반내용용
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Nanum Gothic', sans-serif;
 */
 
 /* 
@@ -84,6 +84,16 @@ body {
 body {
     /* 하단패딩 pb */
     padding-bottom: 50px;
+    /* 글자체 ff */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 전체 a요소 공통 셋팅 */
+a{
+    /* 글자색 */
+    color: #222;
+    /* 밑줄없앰 tdn */
+    text-decoration: none;
 }
 
 /* 박스공통 클래스 */
@@ -139,8 +149,6 @@ body {
     줄여서 마영오! 라고 함!
 */
 
-    /* 웹폰트 적용 */
-    font-family: "Gowun Dodum", sans-serif;
 }
 
 /* 1.상단영역 */
@@ -236,7 +244,7 @@ body {
 /* 하단주소 */
 .info address {
     /* 글자체 */
-    font-family: "Do Hyeon", sans-serif;
+    font-family: 'Jua', sans-serif;
     /* address는 기본 이탤릭이므로 해제하기 */
     font-style: normal;
     /* 글자색 */
