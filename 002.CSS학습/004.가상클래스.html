@@ -137,7 +137,9 @@
             /* 내부 인라인요소 오른쪽 정렬 */
             text-align: right;
 
-            outline: 1px solid red;
+            /* outline: 1px solid red; */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* 
@@ -155,10 +157,10 @@
             list-style: none; /* lin */
         }
 
-        /* ul 기본 리셋하기 */
-        ul.part1{
+        /* 부모박스 셋팅 */
+        ul.part1, div.part2{
             width: 800px;
-            margin: 0 auto; /* -> 박스를 가운데 오게하기 위해서 */
+            margin: 30px auto; /* -> 박스를 가운데 오게하기 위해서 */
             padding: 20px;
             border: 2px solid #ccc;
             /* 둥근모서리 */
@@ -173,6 +175,8 @@
         /* [ font 한번에 셋팅하기! ] 
             font : 스타일 두께 크기/줄간격 글자체
             font : 스두크/줄체
+            ->>> font 한번에 쓰기에서 글자체는 필수!
+            ->>> 2개이상 셋팅필수
         */
 
         /* 모든 li에 오버시 손가락모양 */
@@ -265,6 +269,37 @@
             인라인으로 스타일 주는 것도 안됨!->자바스크립트가 인라인으로 적용되기 때문이다.)
         */
 
+        /* 두번째 파트 
+        -> 여러종류의 요소가 섞여 있으면
+        first-of-type
+        nth-of-type(n)
+        last-of-type
+        */
+
+        /* 두번째 div */
+        .part2 div:nth-of-type(2){
+            font: 30px "궁서";
+            color: blueviolet;
+        }
+        /* 첫번째 i */
+        .part2 i:first-of-type{
+            /* font 한번에 쓰기에서 글씨체는 필수! */
+            /* font: bold 20px; */
+            font-weight: bold;
+            font-size: 20px;
+            color: palevioletred;
+        }
+        /* 3번째 div이후 div형제요소 모두 */
+        /* .part2 div:nth-of-type(3)~div{ */
+
+            /* 3번째 div이후 i형제요소 모두 */
+            /* .part2 div:nth-of-type(3)~i{ */
+
+            /* 3번째 div이후 모든형제요소(*) */
+            .part2 div:nth-of-type(3)~*{
+            font-family: "궁서";
+            color: red;
+        }
 
         /* 
         [ CSS 선택자 우선순위 ]
