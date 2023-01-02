@@ -26,7 +26,7 @@ a {
 }
 body {
     /* 배경이미지 채우기 */
-    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
+    background: url(../ab_img/bg.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
@@ -77,7 +77,7 @@ body {
     /* 부모자격 - .cbx의 부모 */
     top: 210px;
     width: 300px;
-    height: 400px;
+    height: 300px;
     /* 배경이미지 */
     background: url(../ab_img/ab0.jpg) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50%*/
@@ -86,7 +86,7 @@ body {
     margin: 0 auto;
     /* 글러우 효과 : 박스그림자 응용
     box-shadow : (inset) x y blur spread 색 -> inset은 내부그림자 */
-    box-shadow: 0 0 30px 10px cyan, inset 0 0 20px lightgreen;
+    box-shadow: 0 0 30px 10px lightskyblue, inset 0 0 20px lightcoral;
 }
 
 /* 캐릭터박스 */
@@ -140,7 +140,7 @@ body {
     border-radius: 50%;
 
     /* 글로우효과 */
-    box-shadow: 0 0 30px 10px lightgreen;
+    box-shadow: 0 0 30px 10px lightskyblue;
     /* 글자 shadow에는 spread가 없다 */
 }
 
@@ -266,6 +266,7 @@ body:hover .cbx:nth-child(5) {
 .page{
     position: relative;
     /* 부모자격 - .gobtn의 부모 */
+    background-color: rgba(199, 148, 148, 0.404);
 }
 /* 이동버튼 디자인 */
 .gobtn{
@@ -291,7 +292,7 @@ body:hover .cbx:nth-child(5) {
 }
 /* 오버시 a변경 */
 .gobtn:hover{
-    color: hotpink;
+    color: lightskyblue;
     text-decoration: overline;
     text-decoration-style: wavy;
 }
