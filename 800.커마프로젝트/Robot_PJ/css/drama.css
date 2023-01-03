@@ -121,6 +121,8 @@ body {
 
     /* 트랜지션: 속시이지 */
     transition: 0.8s ease-in-out 0.3s;
+    
+
 }
 /* 캐릭터 이미지 */
 .cbx img {
@@ -142,8 +144,14 @@ body {
     border-radius: 50%;
 
     /* 글로우효과 */
-    box-shadow: 0 0 30px 15px #fff;
+    box-shadow: 0 0 30px 10px #fff;
     /* 글자 shadow에는 spread가 없다 */
+
+    filter: grayscale(40%);
+
+    transition: .5s ease-in-out;
+
+
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
@@ -223,7 +231,13 @@ body:hover .cbx:nth-child(5) {
     height: auto;
     /* 전체적으로 트랜지션 설정되어 있으나 height값이 특정값(px,%)으로 설정되지 않고 auto일 경우 애니메이션 되지 않는다!
     만약 적용되는 것을 안되게 하려면 transition에서 개별셋팅해야한다! */
+
 }
+.cbx:hover img{
+    filter: none;
+    box-shadow: 0 0 30px 15px lightcoral
+}
+
 
 /* 왼쪽 진영 글자박스 클래스 */
 .ltxt {
@@ -281,7 +295,7 @@ body:hover .cbx:nth-child(5) {
 }
 /* 가상클래스로 화살표모양 넣기 */
 #pg1 .gobtn::after{
-    content: '👇🚒🚔';
+    content: '👇';
 }
 #pg2 .gobtn::after{
     content: '👆';
