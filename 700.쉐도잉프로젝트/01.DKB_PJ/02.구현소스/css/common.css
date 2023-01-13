@@ -43,8 +43,9 @@ nav.gnb ul{
     /* 마진탑은 부모인 nav.gnb 바깥으로 나가서 위의 박스를 밀고 있다! */
     margin-top: 27px;
 }
-.gnb>ul>li{
-
+/* GNB 최상위 li */
+.gnb > ul > li {    
+    /* a요소의 마진을 li로 이동함! */
     margin: 0 10px;
 }
 /* GNB a요소 */
@@ -119,7 +120,7 @@ nav.gnb ul{
      margin-left: 50%;
 
      height: 2px;
-     margin-top: 5px;
+     margin-top: 16px;
      background-color: #f00;
      /* 트랜지션: 속시이지 trs */
      transition: all .3s;
@@ -162,13 +163,24 @@ nav.gnb ul{
 }
 
 .smenu a{
+    display: block;
+    /* 트랜스폼은 inline일때 적용안됨! */
     font-size: 1.4rem;
     line-height: 2;
     color: #222;
     text-decoration: none;
-
-
+    /* 트랜지션 */
+    transition: .3s;
 }
+
+/* 서브메뉴 a 오버시 확대 */
+.smenu a:hover{
+    transform: scale(1.1);
+    /* font-size는 크기에 따라 주변에 영향을 미친다
+    scale은 영향을 주지 않는다! */
+    color: orangered;
+}
+
 
 /* 1-3.탑메뉴 */
 aside.tmenu{
