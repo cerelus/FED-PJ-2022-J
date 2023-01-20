@@ -207,13 +207,15 @@ body{
 }
 /* 머리박스에 오버시 가상요소 가발변경하기 */
 .head:hover::before{
-    top: -183px;
-    left: -137px;
-    width: 548px;
-    height: 386px;
-    background: url(../images/hair3.png) no-repeat 0/100% 100%;
-    z-index: 0;
+    top: -97px;
+    left: -183px;
+    width: 577px;
+    height: 666px;
+    background: url(../images/hair2.png) no-repeat 0/100% 100%;
+
+    z-index: 1;
 }
+
 /* 머리박스 가상요소로 턱만들기 */
 .head::after{
     content: '';
@@ -406,7 +408,7 @@ body{
     box-sizing: border-box;
 }
 /* 팔연결부분 내부박스 */
-.arm::after{
+outlin.arm::after{
     transform: scale(.8);
     /* 선형 그라데이션 */
     background-image: linear-gradient(45deg,#222 10%,#ccc 60%,#eee);
@@ -436,8 +438,6 @@ body{
     height: 130px;
     /* 회전축변경 : 세로방향 top */
     transform-origin: top;
-
-    outline: 2px dashed lime;
 }
 /* 왼쪽손 배경이미지 */
 .a1 span::after{
