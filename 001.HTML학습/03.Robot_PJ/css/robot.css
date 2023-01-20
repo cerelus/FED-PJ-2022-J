@@ -408,7 +408,7 @@ body{
     box-sizing: border-box;
 }
 /* 팔연결부분 내부박스 */
-outlin.arm::after{
+.arm::after{
     transform: scale(.8);
     /* 선형 그라데이션 */
     background-image: linear-gradient(45deg,#222 10%,#ccc 60%,#eee);
