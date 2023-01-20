@@ -19,6 +19,8 @@ html{
 
 /* 전체가로스크롤 방지 */
 html,body{
+    position: relative;
+    width: 100vw;
     overflow-x: hidden;
 }
 
