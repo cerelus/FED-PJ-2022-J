@@ -69,7 +69,7 @@ body{
 }
 /* 상위li 두번째부터 */
 .gnb ul>li+li{
-    margin-left: 20px;
+    margin-left: 1.4%;
 }
 /* 상위메뉴 a */
 .gnb ul>li>a{
@@ -179,18 +179,19 @@ body{
 .cont{
     position: relative;
     /* 부모자격 - .screen */
-    height: 788px;
+    /* 비율설정 */
+    aspect-ratio: 1200/788;
+    /* height: 788px; */
     /* 극장배경 넣기 */
     background: url(../images/bg.jpg) no-repeat center top/100%;
 }
 /* 2-1.스크린 */
 .screen{
     position: absolute;
-    top: 136px;
-    left: 256px;
-    width: 702px;
-    height: 398px;
-    background-color: #000;
+    top: 17%;
+    left: 21%;
+    width: 59%;
+    height: 51%;
 }
 /* 유튜브 아이프레임 */
 .screen iframe{
@@ -203,9 +204,9 @@ body{
 /* 2-2.예고편 선택메뉴 */
 .mlist{
     position: absolute;  
-    bottom: 61px;
+    bottom: 5%;
     left: 50%;
-    width: 702px;
+    width: 60%;
     transform: translateX(-49%);
 
     /* 앱솔루트 부모자격이 있는 요소의
@@ -219,16 +220,23 @@ body{
     display: flex;
     /* 진행방향정렬 : 양쪽끝 맞춘후 사이간격일정 */
     justify-content: space-between;
-    
+}
+/* 상위li 두번째부터 끝까지 왼쪽마진 */
+.mlist ul>li+li{
+    margin-left: 1.5%;
 }
 /* 선택메뉴 상위li */
 .mlist ul>li{
+    position: relative;
+    /* 부모자격 - .movetxt */
+    flex: 1;
+    /* 등분할설정 */
     overflow: hidden;
 }
 /* 포스터 이미지 */
 .mlist img{
-    width: 99px;
-    height: 140px;
+    width: 100%;
+    /* height: 140px; */
 }
 
 /* 영화정보박스 */
@@ -243,14 +251,15 @@ body{
     /* 앱솔루트 포지션 */
     position: absolute;
     top: 100%;
-    width: 99px;
-    height: 140px;
+    /* 부모는? 싸고있는 li */
+    width: 100%;
+    height: 100%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
 
     /* 글자셋팅 */
     font-family: 'Cute Font', cursive;
-    font-size: 14px;
+    font-size: min(14px,1.1vw);
     line-height: 2;
 
     /* 트랜지션: 속시이지 */
@@ -262,6 +271,12 @@ body{
     top: 0;
 }
 
+/* 영화정보박스 제목만 변경 */
+.movtxt li:first-child{
+    font-size: min(14px,1.1vw);
+    color: aqua;
+    white-space: nowrap;
+}
 
 /**************** 3.하단영역 ****************/
 .info{
