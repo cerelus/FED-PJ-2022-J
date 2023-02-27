@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <!-- 인코딩 설정 -->
+        <meta charset="UTF-8" />
+        <!-- 뷰포트 설정 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- 탭표시 타이틀  -->
+        <title>ul/ol</title>
+
+        <style>
+            /* ul블릿 */
+
+            /* 속이 찬 원 - 기본값 */
+            .u1 {
+                list-style-type: disc;
+            }
+            /* 속이 빈 원 */
+            .u2 {
+                list-style-type: circle;
+            }
+            /* 사각형 */
+            .u3 {
+                list-style-type: square;
+            }
+
+            /* ol블릿 */
+
+            /* 숫자 - 기본값 */
+            .o1 {
+                list-style-type: decimal;
+            }
+            /* 알파벳 소문자 */
+            .o2 {
+                list-style-type: lower-alpha;
+            }
+            /* 알파벳 대문자 */
+            .o3 {
+                list-style-type: upper-alpha;
+            }
+            /* 로마숫자 소문자 */
+            .o4 {
+                list-style-type: lower-roman;
+            }
+            /* 로마숫자 대문자 */
+            .o5 {
+                list-style-type: upper-roman;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li class="u1"></li>
+            <li class="u2"></li>
+            <li class="u3"></li>
+        </ul>
+
+        <ol>
+            <li class="o1"></li>
+            <li class="o2"></li>
+            <li class="o3"></li>
+            <li class="o4"></li>
+            <li class="o5"></li>
+        </ol>
+
+        <ol reversed>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+
+        <ol start="">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+
+        <table border="1">
+            <tr>
+                <th><ins> 밥류</ins><sub>hi</sub></th>
+                <th>면류</th>
+                <th>분식류</th>
+            </tr>
+            <tr>
+                <td>김밥</td>
+                <td>라면</td>
+                <td>떡볶이</td>        
+            </tr>
+        </table>
+        <blockquote cite="">
+            dsfdfs
+        </blockquote>
+
+        <dt></dt>
+        <dd></dd>
+    </body>
+</html>
