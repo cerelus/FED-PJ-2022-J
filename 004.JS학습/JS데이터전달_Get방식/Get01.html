@@ -1,56 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>JS의 Get방식 처리</title>
+        <style type="text/css">
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
 
-<head>
-    <meta charset="utf-8">
-    <title>JS의 Get방식 처리</title>
-    <style type="text/css">
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-        }
+            h1 {
+                padding: 0;
+                width: 800px;
+                height: 100px;
+                margin: 0 auto;
+                font: bold 28px/100px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana,
+                    "sans-serif";
+                color: blue;
+                border: 1px solid #ccc;
+                text-align: center;
+            }
 
-        h1 {
-            padding: 0;
-            width: 800px;
-            height: 100px;
-            margin: 0 auto;
-            font: bold 28px/100px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
-            color: blue;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
+            nav {
+                width: 800px;
+                height: 100px;
+                margin: 0 auto;
+                text-align: center;
+            }
 
-        nav {
-            width: 800px;
-            height: 100px;
-            margin: 0 auto;
-            text-align: center;
-        }
+            nav a {
+                text-decoration: none;
+                color: #333;
+            }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-        }
+            nav a:hover {
+                text-decoration: overline;
+            }
 
-        nav a:hover {
-            text-decoration: overline;
-        }
+            section {
+                width: 800px;
+                height: 500px;
+                margin: 0 auto;
+            }
 
-        section {
-            width: 800px;
-            height: 500px;
-            margin: 0 auto;
-        }
-
-        section img {
-            width: 49%;
-            height: 50%;
-        }
-    </style>
-    <script>
-        /* 
+            section img {
+                width: 49%;
+                height: 50%;
+            }
+        </style>
+        <script>
+            /* 
             [ 웹 페이지간 데이터 전달방식 ]
             - 원래 html의 기본특성은 "비연결성"이다.
             즉, 한번 요청된 페이지는 스스로 업데이트 되지 않는다!
@@ -76,33 +76,39 @@
             4. &(엔퍼센드)는 키=값 쌍단위를 구분해주는 구분자
         */
 
-        //////// 로드구역 ////////////////////////
-        // DOMContentLoaded는 html만 모두 그려지면 발생하는 이벤트!
-        window.addEventListener("DOMContentLoaded", function () {
+            //////// 로드구역 ////////////////////////
+            // DOMContentLoaded는 html만 모두 그려지면 발생하는 이벤트!
+            window.addEventListener("DOMContentLoaded", function () {
+                // 로딩구역 확인
+                console.log("로딩완료!!!");
 
-            // 로딩구역 확인
-            console.log("로딩완료!!!");
+                // 이벤트 대상: #gnb a
+                const gnb = document.querySelectorAll("#gnb a");
+                console.log(gnb);
 
-            // 이벤트 대상: #gnb a
-            const gnb = document.querySelectorAll("#gnb a");
-            console.log(gnb);
+                // 클릭이벤트 설정
+                for (let x of gnb) {
+                    // x는 각 a요소
+                    x.onclick = () => {
+                        // 1. 클릭된 a요소 텍스트
+                        let atxt = x.innerText;
+                        console.log(atxt);
 
-            // 클릭이벤트 설정
-            for(let x of gnb){
-                // x는 각 a요소
-                x.onclick = () => {
-                    // 1. 클릭된 a요소 텍스트
-                    let atxt = x.innerText;
-                    console.log(atxt);
+                        // 2. 전달할 페이지에 Get방식 데이터 전송하기
+                        // url?키=값
+                        // 키 : shop (임의로 정함)
+                        location.href = "Get02.html?shop=" + encodeURIComponent(atxt);
+                        // 2byte문자인 한글을 보낼때 인코딩함수 사용!
+                        // 예) Get02.html?shop=레드샵
+                        // -> 인코딩함수를 안써도 최신브라우저는 자동인코딩을 내부적으로 지원한다!
+                        //    하지만 지원을 하지 않는 경우도 있으므로 반드시 인코딩함수를 사용하여 보내고 
+                        //    디코딩함수로 풀어주도록 하자!
 
-                    // 2. 전달할 페이지에 Get방식 데이터 전송하기
-                    // url?키=값
-                    location.href = "Get02.html?shop="+atxt;
-                }; /////// click ////////
-            } ///////////// for of ////////////
-            
+                    }; /////// click ////////
+                    
+                } ///////////// for of ////////////
 
-            /* 
+                /* 
                 [ url로 보낼때 한글깨짐 방지하기! ]
 
                 2byte문자(한글,일본어,한자,아랍어 등)를
@@ -125,35 +131,24 @@
                 '한글'은 %uD55C%uAE00'이 된다.
 
             */
+            }); /////////// 로드구역 //////////////////////////////////
+            /////////////////////////////////////////////////////////
+        </script>
+    </head>
 
-
-
-        }); /////////// 로드구역 //////////////////////////////////
-        /////////////////////////////////////////////////////////
-    </script>
-
-</head>
-
-<body>
-    <h1>GG Market</h1>
-    <nav>
-        <h2 id="gnb">
-            <a href="#">레드샵</a> |
-            <a href="#">오렌지샵</a> |
-            <a href="#">그린샵</a> |
-            <a href="#">블루샵</a> |
-            <a href="#">블랙샵</a>
-        </h2>
-    </nav>
-    <section>
-        <img src="images/shop_red.jpg" alt="레드샵">
-        <img src="images/shop_orange.jpg" alt="오렌지샵">
-        <img src="images/shop_green.jpg" alt="그린샵">
-        <img src="images/shop_blue.jpg" alt="블루샵">
-    </section>
-
-
-
-</body>
-
+    <body>
+        <h1>GG Market</h1>
+        <nav>
+            <h2 id="gnb">
+                <a href="#">레드샵</a> | <a href="#">오렌지샵</a> | <a href="#">그린샵</a> | <a href="#">블루샵</a> |
+                <a href="#">블랙샵</a>
+            </h2>
+        </nav>
+        <section>
+            <img src="images/shop_red.jpg" alt="레드샵" />
+            <img src="images/shop_orange.jpg" alt="오렌지샵" />
+            <img src="images/shop_green.jpg" alt="그린샵" />
+            <img src="images/shop_blue.jpg" alt="블루샵" />
+        </section>
+    </body>
 </html>
