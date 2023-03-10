@@ -23,10 +23,12 @@
     /* 부모자격 - .smenu */
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
+    z-index: 999;
 }
-.top{
+/* .top{
     min-height: 350px;
-}
+} */
+
 /* 1-1.탑메뉴영역 */
 .tmenu{
     height: 80px;
@@ -42,14 +44,13 @@
 /* 1-2.GNB영역 */
 .gnb{
     /* position: relative; */
-    /* 부모자격 - .smenu -> 사용안함 */
+    /* 부모자격 - .smenu -> 사용안하기로~~! */
     max-width: 1300px;
     margin: 0 auto;
 
     /* 줄바꿈방지 */
     white-space: nowrap;
     /* GNB배경박스(.bgbx)보다위 */
-    z-index: 1;
 }
 .gnb>ul{
     display: flex;
@@ -57,12 +58,10 @@
 }
 /* 상위메뉴 a요소 */
 .gnb>ul>li>a{
-    /* a요소 확장!(li만큼) */
-    /* width: 100%;
-    height: 100%; */
-    display: block;
-    
+    /* a요소 확장! */
+    display: block;    
     padding: 0 20px;
+
     line-height: 60px;
     color: #ccc;
 }
@@ -75,6 +74,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 /* 하위메뉴 */
 .smenu{
     position: absolute;
@@ -84,16 +84,20 @@
     -> 최상위 부모박스에 부모자격줌! */
     
     background-color: #fff;
-    /* 숨기기장치 : overflow,height,opacity(효과) */
+    /* 박스그림자 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
+
+    /* 숨기기장치: overflow,height,opacity(효과) */
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
     height: 0;
-    /* 높이값 : 0 - 각각의 서브높이만큼 오버시 변경! */
+    /* 높이값 : 0 -> 각각의 서브높이만큼 오버시 변경! */
     opacity: 0;
     /* 투명도 : 0 -> 오버시 1로 보이게함 */
 
-    /* 트랜지션 : 속시이지 */
+    /* 트랜지션: 속시이지 */
     transition: .4s ease-in-out;
+
 }
 /* 하위메뉴 구조랩핑박스 .smbx */
 .smbx{
@@ -145,6 +149,7 @@
 /* 하위메뉴(dt) */
 .swrap dt{
     position: relative;
+    /* 가로크기 일정함! */
     width: 120px;
     font-size: 16px;
     padding-bottom: 5px;
@@ -152,6 +157,7 @@
     /* 하단보더 */
     border-bottom: 1px solid #e3e3e3;
 }
+/* dt 하단선 가상요소 */
 .swrap dt::after{
     content: '';
     display: block;
@@ -166,13 +172,13 @@
     display: inline-block;
     color: #777;
 }
-/* dd 하단선 */
+/* dd 하단선 가상요소 */
 .swrap dd a::after{
     content: '';
     display: block;
     width: 0;
     height: 1px;
-    transform: translateY(-10px);
+    transform: translateY(-9px);
     background-color: #555;
     transition: width .2s;
 }
@@ -197,14 +203,14 @@
     top: 140px;
     width: 100%;
 
-    /* 변경요소 : height, opacity */
-    height: 0px;
+    /* 변경요소: height, opacity */
+    height: 0;
     opacity: 0;
 
     background-color: #fff;
     /* 박스그림자 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
-
-    /* 트랜지션 : 속시이지 -> .smenu와 동일! */
+    
+    /* 트랜지션: 속시이지 -> .smenu와 동일! */
     transition: .4s ease-in-out;
 }
